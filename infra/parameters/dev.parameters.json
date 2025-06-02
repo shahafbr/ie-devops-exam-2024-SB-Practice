@@ -3,19 +3,19 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appServiceContainerBackendName": {
-            "value": "{alias}-asc-backend" //Replace {alias} with your student alias to avoid deployment conflicts 
+            "value": "sbrenner-asc-backend" 
         },
         "appServicePlanName": {
-            "value": "{alias}-asp" //Replace {alias} with your student alias to avoid deployment conflicts 
+            "value": "sbrenner-asp" 
         },
         "containerRegistryName": {
-            "value": "{alias}acr" //Replace {alias} with your student alias to avoid deployment conflicts 
+            "value": "sbrenneracr" 
         },
         "postgreSQLDatabaseName": {
-            "value": "{alias}-db" //Replace {alias} with your student alias to avoid deployment conflicts 
+            "value": "sbrenner-db" 
         },
         "postgreSQLServerName": {
-            "value": "{alias}-dbsrv" //Replace {alias} with your student alias to avoid deployment conflicts 
+            "value": "sbrenner-dbsrv" 
         }
     }
 }

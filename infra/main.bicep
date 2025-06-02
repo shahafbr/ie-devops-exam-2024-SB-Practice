@@ -7,9 +7,10 @@ param postgreSQLServerName string
 param postgreSQLDatabaseName string
 param location string = resourceGroup().location
 
-module containerRegistry 'modules/container-registry.bicep' = { 
-  name: 'cr-${userAlias}' //Always include your userAlias within the name of the module deployment in order to avoid conflicts with other student's deployment
+module containerRegistry 'modules/container-registry.bicep' = {
+  name: 'containerRegistry'
   params: {
-    //Configure the required parameters
+    location: location
+    name: containerRegistryName
   }
 }

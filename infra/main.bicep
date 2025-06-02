@@ -1,10 +1,11 @@
-
+param userAlias string
 param appServiceContainerBackendName string
 param appServicePlanName string
 param containerRegistryName string
 param keyVaultName string
 param postgreSQLServerName string
 param administratorLogin string
+@secure()
 param administratorPassword string
 param postgreSQLDatabaseName string
 param location string = resourceGroup().location

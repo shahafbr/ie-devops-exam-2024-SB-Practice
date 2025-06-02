@@ -22,6 +22,12 @@
         },
         "userAlias": {
             "value": "sbrenner" 
+        },
+        "administratorLogin": {
+        "value": "${{ secrets.DBUSER }}"
+        },
+        "administratorPassword": {
+        "value": "${{ secrets.DBPASS }}"
         }
     } 
 }

@@ -1,4 +1,4 @@
-param userAlias string
+
 param appServiceContainerBackendName string
 param appServicePlanName string
 param containerRegistryName string

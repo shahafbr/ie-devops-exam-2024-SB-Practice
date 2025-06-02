@@ -26,5 +26,5 @@
         "administratorPassword": {
         "value": "${{ secrets.DBPASS }}"
         }
-    } 
+    }  
 }

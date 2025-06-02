@@ -45,6 +45,9 @@ module postgreSQLServer 'modules/postgre-sql-server.bicep' = {
 
 module postgreSQLDatabase 'modules/postgre-sql-db.bicep' = {
   name: 'postgreSQLDatabase'
+  dependsOn: [
+    postgreSQLServer
+  ]
     params: {
       name: postgreSQLDatabaseName
       postgreSqlServerName: postgreSQLServerName

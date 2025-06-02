@@ -16,6 +16,12 @@
         },
         "postgreSQLServerName": {
             "value": "sbrenner-dbsrv" 
+        },
+        "keyVaultName": {
+            "value": "sbrenner-kv" 
+        },
+        "userAlias": {
+            "value": "sbrenner" 
         }
     }
 }

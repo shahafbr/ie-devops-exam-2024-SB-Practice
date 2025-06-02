@@ -20,9 +20,6 @@
         "keyVaultName": {
             "value": "sbrenner-kv" 
         },
-        "userAlias": {
-            "value": "sbrenner" 
-        },
         "administratorLogin": {
         "value": "${{ secrets.DBUSER }}"
         },

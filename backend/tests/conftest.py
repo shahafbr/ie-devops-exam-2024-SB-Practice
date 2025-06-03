@@ -17,3 +17,4 @@ def testing_client(scope='module'):
 
     with app.app_context():
         db.drop_all()
+

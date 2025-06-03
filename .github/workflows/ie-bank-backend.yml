@@ -27,10 +27,22 @@ jobs:
         run: pip install -r requirements.txt
         working-directory: ./backend
 
-      - name: Run pytest
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Get secrets from Key Vault
+        uses: azure/get-keyvault-secrets@v1
+        with:
+          keyvault: "sbrenner-kv" 
+          secrets: "db-username,db-password,db-host,db-name"
+        id: dbsecrets
+
+      - name: Run integration tests with Azure PostgreSQL
+        working-directory: ./backend
         run: |
           pip install pytest
           python -m pytest --cov=iebank_api -v
-        working-directory: ./backend
         env:
-          DATABASE_URL: "sqlite:///:memory:"
+          DATABASE_URL: "postgresql://${{ steps.dbsecrets.outputs.db-username }}:${{ steps.dbsecrets.outputs.db-password }}@${{ steps.dbsecrets.outputs.db-host }}/${{ steps.dbsecrets.outputs.db-name }}"

@@ -43,7 +43,7 @@ jobs:
         working-directory: ./backend
         run: |
           pip install pytest
-          export DATABASE_URL="postgresql://${{ secrets.DBUSER }}:${{ secrets.DBPASS }}@${{ env.DBHOST }}.postgres.database.azure.com/${{ env.DBNAME }}"
+          export DATABASE_URL="postgresql://${{ secrets.DBUSER }}:${{ secrets.DBPASS }}@sbrenner-dbsrv.postgres.database.azure.com/${{ env.DBNAME }}"
           python -m pytest --cov=iebank_api -v
         env:
           DBHOST: sbrenner-dbsrv

@@ -38,7 +38,10 @@ jobs:
         working-directory: ./backend
 
       - name: Run Tests
-        run: python -m pytest --cov=iebank_api -v
+        run: |
+          export PYTHONPATH=./backend
+          python -m pytest --cov=character_api -v
+        working-directory: ./backend
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4

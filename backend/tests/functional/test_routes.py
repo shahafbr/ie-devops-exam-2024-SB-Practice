@@ -27,7 +27,7 @@ def test_get_characters(testing_client):
         response = client.get('/characters')
         assert response.status_code == 200
 
-def test_create_character():
+def test_create_character(testing_client):
     """
     GIVEN a Flask application
     WHEN the '/characters' page is requested (POST)
@@ -46,7 +46,7 @@ def test_create_character():
         })
         assert response.status_code == 200
 
-def test_character_level_up():
+def test_character_level_up(testing_client):
     """
     GIVEN a Flask application
     WHEN the '/characters/<alias>/level_up' page is requested (POST)
@@ -56,5 +56,3 @@ def test_character_level_up():
     with app.test_client() as client:
         response = client.post('/characters/test_alias/level_up')
         assert response.status_code == 200
-
-

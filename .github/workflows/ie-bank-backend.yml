@@ -7,8 +7,6 @@ on:
       - 'backend/**'
       - '.github/workflows/ie-bank-backend.yml'
 
-env:
-  SAMPLE_VARIABLE: #value
 
 jobs:
   build:
@@ -33,18 +31,20 @@ jobs:
         working-directory: ./backend
 
       - name: Lint with flake8
+        working-directory: ./backend
         run: |
           pip install flake8 pytest
           # stop the build if there are Python syntax errors or undefined names
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
             # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
             flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-          working-directory: ./backend
+          
 
       - name: Test with pytest
+        working-directory: ./backend
         run: |
             python -m pytest --cov=iebank_api -v
-        working-directory: ./backend
+        
         
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
@@ -80,5 +80,4 @@ jobs:
       #Exercise IV
       # GitHub action: Write step to build and push your Docker image into the Container Registry
 
-
-    
+  

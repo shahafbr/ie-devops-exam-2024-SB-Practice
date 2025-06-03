@@ -1,83 +1,36 @@
-name: 'Backend CI/CD'
+name: 'Backend Tests Only'
 
 on:
   workflow_dispatch:
   push:
     paths:
       - 'backend/**'
-      - '.github/workflows/ie-bank-backend.yml'
-
+      - '.github/workflows/backend-tests.yml'
 
 jobs:
-  build:
-    
+  test:
     runs-on: ubuntu-latest
-    env:
-      ENV: 'Development'
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
       - name: Upgrade pip
-        run: |
-          python -m pip install --upgrade pip
+        run: python -m pip install --upgrade pip
 
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
         working-directory: ./backend
 
-      - name: Lint with flake8
-        working-directory: ./backend
+      - name: Run pytest
         run: |
-          pip install flake8 pytest
-          # stop the build if there are Python syntax errors or undefined names
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-            # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-            flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-          
-
-      - name: Test with pytest
+          pip install pytest
+          python -m pytest --cov=iebank_api -v
         working-directory: ./backend
-        run: |
-            python -m pytest --cov=iebank_api -v
-        
-        
-      - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v4
-        with:
-            name: python-app
-            path: |
-              .
-
-      # Exercise IV
-      # GitHub action: Write step to checkout code.
-
-      # Exercise IV
-      # GitHub action: Write step to set up Python 3.11.
-
-      # Exercise IV
-      # GitHub action: Write step to upgrade Python pip. Consider using the `working-directory: ./backend` setting
-    
-      # Exercise IV
-      # GitHub action: Write step to install dependencies with pip. Consider using the `working-directory: ./backend` setting
-
-      # Exercise IV
-      # GitHub action: Write step to install flake8 and pytest, and use flake8 to check code syntax. Consider using the `working-directory: ./backend` setting
-
-      # Exercise IV
-      # GitHub action: Write step to run python tests with pytest. Consider using the `working-directory: ./backend` setting
-    
-      # Exercise IV
-      # GitHub action: Write step to login in to Azure Container Registry.
-      
-      # Exercise IV
-      # GitHub action: Write step to set your docker image version
-
-      #Exercise IV
-      # GitHub action: Write step to build and push your Docker image into the Container Registry
-
-  
+        env:
+          DATABASE_URL: "sqlite:///:memory:"

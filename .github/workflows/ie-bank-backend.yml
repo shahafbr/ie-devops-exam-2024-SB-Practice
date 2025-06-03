@@ -80,16 +80,5 @@ jobs:
       #Exercise IV
       # GitHub action: Write step to build and push your Docker image into the Container Registry
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Development'
 
-    steps:
-      # Exercise IV
-      # GitHub action: Write step to login in to Azure.
-
-      # Exercise IV
-      # GitHub action: Write step to set up the published container image for your Azure container web app
     

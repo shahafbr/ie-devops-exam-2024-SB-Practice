@@ -14,7 +14,9 @@ class Character(db.Model):
     speed =  db.Column(db.Float, default = 5.0)
 
     def __repr__(self):
-        return f'Character({self.name}, level={self.level}, health={self.health}, strength={self.strength}, defense={self.defense}, speed={self.speed})'
+        return (f"Character({self.name}, level={self.level}, "
+            f"health={self.health:.1f}, strength={self.strength:.1f}, "
+            f"defense={self.defense:.1f}, speed={self.speed:.1f})")
 
     def __init__(self, alias, name, level=1, health=100.0, strength=5.0, defense=5.0, speed=5.0):
         self.alias = alias

@@ -5,7 +5,7 @@ on:
   push:
     paths:
       - 'backend/**'
-      - '.github/workflows/backend-tests.yml'
+      - '.github/workflows/ie-bank-backend.yml'
 
 jobs:
   test:

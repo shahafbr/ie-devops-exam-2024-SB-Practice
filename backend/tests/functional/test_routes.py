@@ -37,7 +37,6 @@ def test_create_character(testing_client):
     with app.test_client() as client:
         response = client.post('/characters', json={
             'alias': 'test_alias',
-            'name': 'Test Character',
             'level': 1,
             'health': 100,
             'strength': 10,

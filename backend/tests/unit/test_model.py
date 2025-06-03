@@ -18,6 +18,16 @@ def test_create_character():
     assert character.speed == 7
 
 
-    # Exercise III: Add at least one more unit test
+
+# Exercise III: Add at least one more unit test
+def test_character_repr():
+    """
+    GIVEN a Character model
+    WHEN the __repr__ method is called
+    THEN check the string representation is correct
+    """
+    character = Character(alias="hero", name="Hero", level=1, health=100, strength=10, defense=5, speed=7)
+    expected_repr = "Character(Hero, level=1, health=100.0, strength=10.0, defense=5.0, speed=7.0)"
+    assert repr(character) == expected_repr
 
 

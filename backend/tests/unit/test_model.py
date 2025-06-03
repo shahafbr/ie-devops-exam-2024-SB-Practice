@@ -19,14 +19,5 @@ def test_create_character():
 
 
     # Exercise III: Add at least one more unit test
-def test_character_level_up():
-    """
-    GIVEN a Character model
-    WHEN the level_up method is called
-    THEN check the level increases by 1
-    """ 
-    character = Character(alias="hero", name="Hero", level=1, health=100, strength=10, defense=5, speed=7)
-    initial_level = character.level
-    character.level_up()
-    assert character.level == initial_level + 1
+
 

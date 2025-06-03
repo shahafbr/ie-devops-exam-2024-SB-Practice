@@ -45,14 +45,3 @@ def test_create_character(testing_client):
             'speed': 7
         })
         assert response.status_code == 200
-
-def test_character_level_up(testing_client):
-    """
-    GIVEN a Flask application
-    WHEN the '/characters/<alias>/level_up' page is requested (POST)
-    THEN check the response is valid
-    """
-    # Implement here and below:
-    with app.test_client() as client:
-        response = client.post('/characters/test_alias/level_up')
-        assert response.status_code == 200

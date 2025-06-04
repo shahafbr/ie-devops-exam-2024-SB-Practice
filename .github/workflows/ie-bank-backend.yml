@@ -56,7 +56,7 @@ jobs:
           username: ${{ env.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD1 }}
       
-      # GitHub action: Write step to set your docker image version
+      # GitHub action - Write step to set your docker image version
       # You can use the environment variable IMAGE_NAME
       - name: 'Setting your docker image version'
         run: |

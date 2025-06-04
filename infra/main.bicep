@@ -14,7 +14,7 @@ param administratorPassword string
 
 
 
-//Deploy Key VaulT
+//Deploy Key VaulT:
 module keyVault 'modules/key-vault.bicep' = {
   name: 'keyVault'
   params: {
@@ -23,7 +23,7 @@ module keyVault 'modules/key-vault.bicep' = {
   }
 }
 
-//Deploy App Service Plan
+//Deploy App Service Plan:
 module appServicePlan 'modules/app-service-plan.bicep' = {
   name: 'appServicePlan'
   params: {
@@ -58,7 +58,7 @@ module postgreSQLDatabase 'modules/postgre-sql-db.bicep' = {
   name: 'postgreSQLDatabase'
   params: {
     name: postgreSQLDatabaseName
-    postgreSqlServerName: postgreSQLServer.outputs.name
+    postgreSqlServerName: postgreSQLServerName
   }
 }
 
@@ -89,7 +89,7 @@ module appServiceContainer 'modules/app-service-container.bicep' = {
         value: administratorPassword
       }, {
         name: 'DBHOST'
-        value: '${postgreSQLServer.outputs.name}.postgres.database.azure.com'
+        value: '${postgreSQLServerName}.postgres.database.azure.com'
       }, {
         name: 'DBNAME'
         value: postgreSQLDatabaseName

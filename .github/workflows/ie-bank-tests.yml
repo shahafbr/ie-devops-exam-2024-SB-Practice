@@ -1,0 +1,52 @@
+name: 'Backend CI/CD Testing'
+
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'backend/**'
+      - '.github/workflows/ie-bank-tests.yml'
+
+env:
+  ENV: ghci
+  ACR_NAME_DEV: sbrenneracr
+  RESOURCE_GROUP_DEV: BCSAI2024-DEVOPS-STUDENTS-B-DEV
+  BACKEND_WEBAPP_DEV: sbrenner-asc-backend
+  DOCKER_REGISTRY_SERVER_URL_DEV: sbrenneracr.azurecr.io
+  IMAGE_NAME_DEV: sbrenner-asc-backend
+  KEY_VAULT_NAME_DEV: sbrenner-kv
+  
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Upgrade pip
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+        working-directory: ./backend
+
+      - name: Run Tests
+        run: |
+          export PYTHONPATH=./backend
+          python -m pytest --cov=character_api -v
+        working-directory: ./backend
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: htmlcov

@@ -45,3 +45,4 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
 //Extra exercise: store the FlexibleSQL Server Credentials (administratorLogin, administratorLoginPassword) as key vault secrets
 
 output id string = postgresSQLServer.id
+output name string = postgresSQLServer.name

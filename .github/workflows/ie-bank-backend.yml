@@ -8,8 +8,8 @@ on:
       - '.github/workflows/ie-bank-backend.yml'
 
 env:
-  BACKEND_WEBAPP_DEV: sbrenner-asc-backend
-  IMAGE_NAME: sbrenner-asc-backend
+  BACKEND_WEBAPP_DEV: sbrennerascbackend
+  IMAGE_NAME: sbrennerascbackend
   REGISTRY_USERNAME: sbrenneracr
 
 jobs:

@@ -1,6 +1,6 @@
 // Exercise II: Configure the input parameters to set up your development environment
 param userAlias string = 'sbrenner'
-param keyVaultName string = '${userAlias}-kv'
+param keyVaultName string = '${userAlias}kv'
 param appServiceContainerBackendName string
 param appServicePlanName string
 param containerRegistryName string

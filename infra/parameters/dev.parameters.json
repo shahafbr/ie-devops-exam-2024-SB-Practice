@@ -3,19 +3,19 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appServiceContainerBackendName": {
-            "value": "sbrenner-asc-backend" 
+            "value": "sbrennerascbackend" 
         },
         "appServicePlanName": {
-            "value": "sbrenner-asp" 
+            "value": "sbrennerasp" 
         },
         "containerRegistryName": {
             "value": "sbrenneracr" 
         },
         "postgreSQLDatabaseName": {
-            "value": "sbrenner-db" 
+            "value": "sbrennerdb" 
         },
         "postgreSQLServerName": {
-            "value": "sbrenner-dbsrv" 
+            "value": "sbrennerdbsrv" 
         },
         "administratorLogin": {
         "value": "${{ secrets.DBUSER }}"
